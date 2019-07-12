@@ -50,6 +50,7 @@ build-release
 build-win64
 vcpkg-build-win64
 vcpkg-build
+
 .idea
 
 apps/evnsq/evnsqtail/evnsqtail

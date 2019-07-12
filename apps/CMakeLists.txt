@@ -1,5 +1,5 @@
 
-include_directories(${PROJECT_SOURCE_DIR}/apps ${PROJECT_SOURCE_DIR}/3rdparty)
+include_directories(${PROJECT_SOURCE_DIR}/apps ${PROJECT_SOURCE_DIR}/3rdparty ${PROJECT_SOURCE_DIR}/util)
 
 #if (UNIX)
 #set(LIBRARIES evpp_concurrentqueue event glog pthread)
