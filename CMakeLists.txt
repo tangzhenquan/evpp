@@ -28,12 +28,15 @@ if (UNIX)
     )
     include_directories (${PROJECT_SOURCE_DIR}
                          ${PROJECT_SOURCE_DIR}/3rdparty)
+    include_directories(/home/tom/Documents/real_documents/sandbox/libevent-2.1.10-stable/include)
+    link_directories(/home/tom/Documents/real_documents/sandbox/libevent-2.1.10-stable/lib)
 else (UNIX)
 set (CXX_FLAGS -DWIN32 -D_WIN32 -EHsc)
     set(VcpkgRoot ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET})
     include_directories(${VcpkgRoot}/include
                         ${PROJECT_SOURCE_DIR}
                         ${PROJECT_SOURCE_DIR}/3rdparty/wininclude)
+
 
     # On windows, Debug mode
     link_directories(${VcpkgRoot}/debug/lib ${VcpkgRoot}/debug/lib/manual-link)
@@ -87,12 +90,12 @@ message (STATUS "THRIFT_LIBRARY " ${THRIFT_LIBRARY})
 
 add_subdirectory (evpp)
 add_subdirectory (apps)
-add_subdirectory (labs)
+#add_subdirectory (labs)
 
 if (NOT EVPP_VCPKG_BUILD)
-    add_subdirectory (test)
+    #add_subdirectory (test)
     add_subdirectory (examples)
-    add_subdirectory (benchmark)
+    #add_subdirectory (benchmark)
 endif ()
 
 set (CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")

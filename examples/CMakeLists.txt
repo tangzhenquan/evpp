@@ -8,7 +8,7 @@ link_directories(${PROJECT_SOURCE_DIR}/vsprojects/bin/${CMAKE_BUILD_TYPE}/
 				 ${PROJECT_SOURCE_DIR}/3rdparty/glog-0.3.4/${CMAKE_BUILD_TYPE})
 endif(UNIX)
 
-add_subdirectory(apps)
+#add_subdirectory(apps)
 add_subdirectory(chatroom)
 add_subdirectory(recipes)
 add_subdirectory(http)
@@ -22,7 +22,6 @@ target_link_libraries(example_tcpecho ${LIBRARIES})
 
 add_executable(example_udpecho echo/udpecho/main.cc)
 target_link_libraries(example_udpecho ${LIBRARIES})
-
 add_executable(example_pingpong_client pingpong/client.cc)
 target_link_libraries(example_pingpong_client ${LIBRARIES})
 

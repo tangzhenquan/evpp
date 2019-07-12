@@ -30,12 +30,12 @@ if (UNIX)
     target_link_libraries(evpp ${DEPENDENT_LIBRARIES})
 
     # boost lockfree queue
-    add_library(evpp_boost SHARED ${evpp_SRCS})
-    add_library(evpp_boost_static STATIC ${evpp_SRCS})
-    target_compile_definitions(evpp_boost PRIVATE -DH_HAVE_BOOST=1)
-    target_compile_definitions(evpp_boost_static PRIVATE -DH_HAVE_BOOST=1)
-    target_link_libraries(evpp_boost        ${DEPENDENT_LIBRARIES})
-    target_link_libraries(evpp_boost_static ${DEPENDENT_LIBRARIES})
+    #add_library(evpp_boost SHARED ${evpp_SRCS})
+    #add_library(evpp_boost_static STATIC ${evpp_SRCS})
+    #target_compile_definitions(evpp_boost PRIVATE -DH_HAVE_BOOST=1)
+    #target_compile_definitions(evpp_boost_static PRIVATE -DH_HAVE_BOOST=1)
+    #target_link_libraries(evpp_boost        ${DEPENDENT_LIBRARIES})
+    #target_link_libraries(evpp_boost_static ${DEPENDENT_LIBRARIES})
 
     # https://github.com/cameron314/concurrentqueue
     add_library(evpp_concurrentqueue SHARED ${evpp_SRCS})
@@ -49,13 +49,13 @@ if (UNIX)
     include (utils)
     include (packages)
     set_target_properties (
-        evpp evpp_boost evpp_concurrentqueue PROPERTIES
+        evpp  evpp_concurrentqueue PROPERTIES
         VERSION     "${PACKAGE_VERSION}"
         SOVERSION   "${PACKAGE_SOVERSION}"
     )
 
     install (
-      TARGETS evpp evpp_static evpp_lite_static evpp_boost evpp_boost_static evpp_concurrentqueue evpp_concurrentqueue_static
+      TARGETS evpp evpp_static evpp_lite_static   evpp_concurrentqueue evpp_concurrentqueue_static
       EXPORT ${PACKAGE_NAME}
       RUNTIME DESTINATION bin
       LIBRARY DESTINATION lib
