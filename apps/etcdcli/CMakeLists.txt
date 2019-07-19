@@ -1,6 +1,6 @@
 
 
-set(base_SRCS etcd-def.h etcd-packet.cpp etcd-packet.h)
+set(base_SRCS etcd_def.h etcd_packet.cpp etcd_packet.h etcd_cluster.cpp etcd_cluster.h etcd_client.cpp etcd_client.h)
 add_library(etcdcli STATIC ${base_SRCS} )
 target_link_libraries(etcdcli evpp_static event glog util)
 

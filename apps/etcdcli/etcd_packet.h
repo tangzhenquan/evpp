@@ -6,7 +6,7 @@
 
 #include "rapidjson/document.h"
 
-#include "etcd-def.h"
+#include "etcd_def.h"
 
 
 namespace etcdcli {

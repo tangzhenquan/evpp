@@ -2,8 +2,8 @@
 // Created by tom on 19-7-12.
 //
 
-#ifndef SAFE_EVPP_ETCD_DEF_H
-#define SAFE_EVPP_ETCD_DEF_H
+#ifndef APP_ETCDCLI_ETCD_DEF_H
+#define APP_ETCDCLI_ETCD_DEF_H
 
 #include <string>
 #include <stdint.h>
@@ -35,4 +35,4 @@ namespace etcdcli{
     };
 }
 
-#endif //SAFE_EVPP_ETCD_DEF_H
+#endif //APP_ETCDCLI_ETCD_DEF_H

@@ -5,7 +5,7 @@
 #include <string-oprs.h>
 
 
-#include "etcd-packet.h"
+#include "etcd_packet.h"
 
 namespace etcdcli {
 

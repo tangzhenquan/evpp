@@ -100,6 +100,8 @@ void Request::ExecuteInLoop() {
         goto failed;
     }
 
+    evhttp_request_set_chunked_cb(req, &Request::HandleChunk);
+
     if (evhttp_add_header(req->output_headers, "host", conn_->host().c_str())) {
         evhttp_request_free(req);
         errmsg = "evhttp_add_header failed";
@@ -169,6 +171,17 @@ void Request::HandleResponse(struct evhttp_request* r, void* v) {
     Request* thiz = (Request*)v;
     assert(thiz);
     thiz->HandleResponse(r);
+}
+
+void Request::HandleChunk(struct evhttp_request *r, void *v) {
+    Request* thiz = (Request*)v;
+    assert(thiz);
+    struct evbuffer* evbuf = evhttp_request_get_input_buffer(r);
+    size_t buffer_size = evbuffer_get_length(evbuf);
+    if (buffer_size > 0) {
+        auto dd =  evpp::Slice((char*)evbuffer_pullup(evbuf, -1), buffer_size);
+        LOG_INFO << "this=" << thiz << " http Chunk : " << dd.ToString() ;
+    }
 }
 
 void Request::HandleResponse(struct evhttp_request* r) {

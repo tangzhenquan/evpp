@@ -57,6 +57,7 @@ public:
     void AddHeader(const std::string& header, const std::string& value);
 private:
     static void HandleResponse(struct evhttp_request* r, void* v);
+    static void HandleChunk(struct evhttp_request* r, void* v);
     void HandleResponse(struct evhttp_request* r);
     void ExecuteInLoop();
     void Retry();

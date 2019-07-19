@@ -13,7 +13,7 @@ static bool responsed = false;
 static void HandleHTTPResponse(const std::shared_ptr<evpp::httpc::Response>& response, evpp::httpc::GetRequest* request) {
     LOG_INFO << "http_code=" << response->http_code() << " [" << response->body().ToString() << "]";
     std::string header = response->FindHeader("Connection");
-    LOG_INFO << "HTTP HEADER Connection=" << header;
+    LOG_INFO << "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxHTTP HEADER Connection=" << header;
     responsed = true;
     assert(request == response->request());
     delete request; // The request MUST BE deleted in EventLoop thread.
